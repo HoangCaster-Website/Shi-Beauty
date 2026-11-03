@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f5ef">
+  <meta name="description" content="Shi Beauty, votre parenthèse beauté. Découvrez notre carte : manucure, vernis semi-permanent, beauté des pieds, nail art et extensions de cils.">
+  <meta property="og:title" content="Shi Beauty — Ongles & regard">
+  <meta property="og:description" content="De jolis ongles, un moment pour vous. Découvrez les soins et tarifs de Shi Beauty.">
+  <meta property="og:type" content="website">
+  <title>Shi Beauty — Ongles & regard</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/cormorant-normal-400.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="./assets/dm-sans-normal-400.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="./fonts.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./salon-config.js" defer></script>
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <div class="announcement">Votre parenthèse beauté, tout simplement.</div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="#accueil" aria-label="Shi Beauty, accueil"><span class="wordmark-name">shi<span class="wordmark-dot">.</span></span><span class="wordmark-caption">BEAUTY</span></a>
+      <nav class="desktop-nav" aria-label="Navigation principale">
+        <a href="#le-salon">Le salon</a>
+        <a href="#la-carte">Prestations & tarifs</a>
+        <a href="#inspirations">Inspirations</a>
+        <a href="#vos-questions">Vos questions</a>
+      </nav>
+      <button class="button button-small header-booking" data-booking>Prendre rendez-vous <span aria-hidden="true">↗</span></button>
+      <button class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false"><span class="menu-label">Menu</span><span class="menu-icon" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+    <nav class="mobile-nav" id="mobile-menu" aria-label="Navigation mobile" hidden>
+      <a href="#le-salon">Le salon <span aria-hidden="true">↗</span></a>
+      <a href="#la-carte">Prestations & tarifs <span aria-hidden="true">↗</span></a>
+      <a href="#inspirations">Inspirations <span aria-hidden="true">↗</span></a>
+      <a href="#vos-questions">Vos questions <span aria-hidden="true">↗</span></a>
+      <button class="button" data-booking>Prendre rendez-vous <span aria-hidden="true">↗</span></button>
+      <p>ONGLES & REGARD · SHI BEAUTY</p>
+    </nav>
+  </header>
+
+  <main id="contenu">
+    <section class="hero" id="accueil" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="small-line"></span> ONGLES & REGARD</p>
+        <h1 id="hero-title">De jolis ongles, <br>un moment <br><em>pour vous.</em></h1>
+        <p class="hero-description">Une jolie couleur, un geste précis, une pause à soi.<br class="desktop-break"> Bienvenue chez Shi Beauty.</p>
+        <div class="hero-actions">
+          <button class="button" data-booking>Prendre rendez-vous <span aria-hidden="true">↗</span></button>
+          <a class="text-link" href="#la-carte">Découvrir les soins <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="hero-note">MANUCURE · BEAUTÉ DES PIEDS · EXTENSIONS DE CILS</p>
+      </div>
+      <figure class="hero-visual">
+        <img src="./assets/manicure.jpg" alt="Manucure nude rosée et brillante, sur un tissu blanc tout doux" width="1000" height="1500" fetchpriority="high">
+        <figcaption><span>La beauté est dans les détails.</span><span aria-hidden="true">01 / SHI BEAUTY</span></figcaption>
+      </figure>
+    </section>
+
+    <div class="services-ribbon" aria-label="Nos spécialités">
+      <span>Manucure</span><i aria-hidden="true">·</i><span>Semi-permanent</span><i aria-hidden="true">·</i><span>Nail art</span><i aria-hidden="true">·</i><span>Beauté des pieds</span><i aria-hidden="true">·</i><span>Beauté du regard</span>
+    </div>
+
+    <section class="salon-section section-space container" id="le-salon" aria-labelledby="salon-title">
+      <p class="eyebrow">BIENVENUE CHEZ SHI BEAUTY</p>
+      <h2 id="salon-title">Un peu de douceur. <br>Beaucoup de <em>soin.</em></h2>
+      <p>Du nude discret à la couleur qui se remarque, de la manucure classique au nail art : choisissez ce qui vous ressemble. Chez Shi Beauty, on prend le temps de parler de vos envies, de la forme et de la finition.</p>
+      <a class="text-link" href="#la-carte">À chaque envie, son soin <span aria-hidden="true">↗</span></a>
+      <span class="salon-signature" aria-hidden="true">Shi Beauty</span>
+    </section>
+
+    <section class="treatments section-space" id="la-carte" aria-labelledby="treatments-title">
+      <div class="container">
+        <div class="section-heading">
+          <div><p class="eyebrow">LES SOINS & LES TARIFS</p><h2 id="treatments-title">La carte <em>beauté.</em></h2></div>
+          <p>Les essentiels, les petits détails, les envies de changement. <br>À vous de choisir votre prochain rendez-vous.</p>
+        </div>
+        <div class="treatment-tabs" aria-label="Catégories de soins">
+          <button id="tab-mains" data-tab="mains" aria-controls="panel-mains" class="is-active"><span class="tab-number">01</span> Mains & pieds</button>
+          <button id="tab-extensions" data-tab="extensions" aria-controls="panel-extensions"><span class="tab-number">02</span> Extensions & nail art</button>
+          <button id="tab-regard" data-tab="regard" aria-controls="panel-regard"><span class="tab-number">03</span> Beauté du regard</button>
+        </div>
+        <div class="treatment-panel" id="panel-mains" aria-labelledby="tab-mains">
+          <figure class="treatment-photo"><img src="./assets/pedicure.jpg" alt="Détail d’ongles courts avec un vernis nude rosé" width="1000" height="1596" loading="lazy"><figcaption><span>Le naturel, avec ce petit plus.</span><span>01</span></figcaption></figure>
+          <div class="price-content">
+            <div class="price-intro"><h3>Jusqu’au bout des doigts.</h3><p>Une mise en beauté des mains et des pieds, avec ou sans couleur.</p></div>
+            <dl class="price-list">
+              <div><dt>Manucure</dt><dd>20 €</dd></div>
+              <div><dt>Vernis semi-permanent</dt><dd>25 €</dd></div>
+              <div><dt>Beauté des pieds sans vernis</dt><dd>35 €</dd></div>
+              <div><dt>Beauté des pieds + vernis semi-permanent</dt><dd>45 €</dd></div>
+              <div><dt>Résine sur les ongles des pieds + vernis</dt><dd>35 €</dd></div>
+            </dl>
+            <div class="price-bottom"><p>Envie d’une French ou d’une touche de nail art ? <br>Retrouvez les suppléments dans « Extensions & nail art ».</p><button class="text-link" data-booking data-service="semi">Choisir ce soin <span aria-hidden="true">↗</span></button></div>
+          </div>
+        </div>
+        <div class="treatment-panel" id="panel-extensions" aria-labelledby="tab-extensions">
+          <figure class="treatment-photo"><img src="./assets/studio.jpg" alt="Inspiration nail art : vernis noir brillant et motif écaille" width="1000" height="1500" loading="lazy"><figcaption><span>Votre style, jusque dans les détails.</span><span>02</span></figcaption></figure>
+          <div class="price-content">
+            <div class="price-intro"><h3>Une touche bien à vous.</h3><p>De la longueur, une finition ou un motif : composez votre manucure.</p></div>
+            <dl class="price-list">
+              <div><dt>Capsules + résine + vernis semi-permanent</dt><dd>45 €</dd></div>
+              <div><dt>Comblage<small>Sur le tarif de la pose</small></dt><dd>−5 €</dd></div>
+              <div><dt>French, baby boomer, chrome, cat eye<small>Supplément à la pose</small></dt><dd>+5 €</dd></div>
+              <div><dt>Design d’un ongle<small>Supplément à la pose</small></dt><dd>+5 €</dd></div>
+              <div><dt>Design complet</dt><dd class="price-quote">Sur devis</dd></div>
+            </dl>
+            <div class="price-bottom"><p>Un motif en tête ? Gardez votre photo d’inspiration <br>pour en discuter au salon.</p><button class="text-link" data-booking data-service="capsules">Choisir ce soin <span aria-hidden="true">↗</span></button></div>
+          </div>
+        </div>
+        <div class="treatment-panel" id="panel-regard" aria-labelledby="tab-regard">
+          <figure class="treatment-photo"><img src="./assets/lashes.jpg" alt="Application minutieuse d’extensions de cils en institut" width="1000" height="1500" loading="lazy"><figcaption><span>Du naturel au plus intense.</span><span>03</span></figcaption></figure>
+          <div class="price-content">
+            <div class="price-intro"><h3>Tout est dans le regard.</h3><p>Une pose classique ou plus de volume, selon l’effet que vous aimez.</p></div>
+            <dl class="price-list compact">
+              <div><dt>Pose classique</dt><dd>60 €</dd></div>
+              <div><dt>Comblage classique<small>3 semaines</small></dt><dd>50 €</dd></div>
+              <div><dt>Pose volume russe</dt><dd>70 €</dd></div>
+              <div><dt>Pose méga volume</dt><dd>85 €</dd></div>
+              <div><dt>Pose mixte</dt><dd>70 €</dd></div>
+              <div><dt>Comblage volume<small>3 à 4 semaines</small></dt><dd>60 €</dd></div>
+              <div><dt>Dépose</dt><dd>20 €</dd></div>
+            </dl>
+            <div class="price-bottom"><p>Vous hésitez entre deux poses ? <br>Parlons de l’effet que vous souhaitez.</p><button class="text-link" data-booking data-service="cils-classique">Choisir ce soin <span aria-hidden="true">↗</span></button></div>
+          </div>
+        </div>
+        <p class="tariff-note">Prix en euros. Les designs complets font l’objet d’un devis avant la prestation.</p>
+      </div>
+    </section>
+
+    <section class="inspiration-section section-space container" id="inspirations" aria-labelledby="inspiration-title">
+      <div class="section-heading"><div><p class="eyebrow">LE CARNET D’INSPIRATIONS</p><h2 id="inspiration-title">Quelle sera <em>votre couleur ?</em></h2></div><p>Un nude tout doux, un rose lumineux, un détail qui change tout. <br>Quelques idées à garder pour votre prochaine visite.</p></div>
+      <div class="inspiration-grid">
+        <figure><button class="gallery-trigger" data-gallery="0" aria-label="Agrandir l’inspiration Nude tout doux"><img src="./assets/manicure.jpg" alt="Ongles nude rosé à la finition brillante" width="1000" height="1500" loading="lazy"><span class="photo-expand" aria-hidden="true">↗</span></button><figcaption><span>Nude tout doux</span><span>01</span></figcaption></figure>
+        <figure><button class="gallery-trigger" data-gallery="1" aria-label="Agrandir l’inspiration La vie en rose"><img src="./assets/pink.jpg" alt="Manucure associant un rose vif et un rose naturel sur fond beige" width="1000" height="667" loading="lazy"><span class="photo-expand" aria-hidden="true">↗</span></button><figcaption><span>La vie en rose</span><span>02</span></figcaption></figure>
+        <figure><button class="gallery-trigger" data-gallery="2" aria-label="Agrandir l’inspiration Le sens du détail"><img src="./assets/studio.jpg" alt="Manucure noire et nail art effet écaille avec une bague dorée" width="1000" height="1500" loading="lazy"><span class="photo-expand" aria-hidden="true">↗</span></button><figcaption><span>Le sens du détail</span><span>03</span></figcaption></figure>
+      </div>
+      <p class="inspiration-note">Photos d’inspiration. Apportez vos idées : nous discuterons ensemble de leur réalisation.</p>
+    </section>
+
+    <section class="faq-section section-space" id="vos-questions" aria-labelledby="faq-title">
+      <div class="container faq-layout">
+        <div class="faq-heading"><p class="eyebrow">AVANT VOTRE VISITE</p><h2 id="faq-title">Les petits <br><em>détails utiles.</em></h2><p>Un doute sur le soin à choisir ? <br>Voici quelques repères.</p><a class="text-link" href="#la-carte">Revoir la carte <span aria-hidden="true">↑</span></a></div>
+        <div class="faq-list">
+          <details><summary>Quelle différence entre manucure et semi-permanent ? <span class="faq-plus" aria-hidden="true"></span></summary><div class="faq-answer"><p>La manucure s’intéresse à la mise en forme et au soin des ongles. Le vernis semi-permanent apporte de la couleur avec une finition brillante. Consultez la carte pour choisir la prestation adaptée à votre envie et précisez si vous souhaitez associer les deux.</p></div></details>
+          <details><summary>Puis-je venir avec une photo d’inspiration ? <span class="faq-plus" aria-hidden="true"></span></summary><div class="faq-answer"><p>Oui, gardez une photo de la couleur, de la forme ou du motif qui vous plaît. Nous pourrons discuter de sa réalisation et du tarif avant de commencer. Un design complet est proposé sur devis.</p></div></details>
+          <details><summary>La French et les effets sont-ils compris dans la pose ? <span class="faq-plus" aria-hidden="true"></span></summary><div class="faq-answer"><p>La French, le baby boomer, le chrome et le cat eye sont proposés avec un supplément de 5 € à la pose. Le design d’un ongle est également à +5 €. Pour un design complet, un devis est établi avant la prestation.</p></div></details>
+          <details><summary>Quand prévoir le comblage de mes cils ? <span class="faq-plus" aria-hidden="true"></span></summary><div class="faq-answer"><p>Notre carte prévoit un comblage classique à 3 semaines et un comblage volume entre 3 et 4 semaines. L’état de votre pose pourra être évalué au salon pour vous orienter vers la prestation adaptée.</p></div></details>
+          <details><summary>Comment prendre rendez-vous ? <span class="faq-plus" aria-hidden="true"></span></summary><div class="faq-answer"><p data-booking-help>Les coordonnées et le lien de réservation du salon seront bientôt disponibles ici. En attendant, vous pouvez consulter les tarifs et préparer votre sélection de soins.</p><button class="text-link" data-booking>Préparer ma sélection <span aria-hidden="true">↗</span></button></div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit-section" aria-labelledby="visit-title">
+      <div class="container visit-inner"><p class="eyebrow">LA PROCHAINE PAUSE, C’EST LA VÔTRE.</p><h2 id="visit-title">Et si on prenait <br>un moment <em>pour vous ?</em></h2><button class="button" data-booking>Prendre rendez-vous <span aria-hidden="true">↗</span></button><p class="visit-caption">Un soin, une couleur, une petite attention à soi.</p></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-top"><a class="wordmark footer-wordmark" href="#accueil" aria-label="Shi Beauty, retour à l’accueil"><span class="wordmark-name">shi<span class="wordmark-dot">.</span></span><span class="wordmark-caption">BEAUTY</span></a><p>La beauté au bout des doigts. <br>La douceur d’un moment à soi.</p><nav aria-label="Navigation de pied de page"><a href="#la-carte">Les soins & tarifs</a><a href="#inspirations">Les inspirations</a><a href="#vos-questions">Les questions utiles</a></nav><div class="footer-contact"><span class="eyebrow">ON GARDE LE LIEN</span><p data-contact-placeholder>Les coordonnées du salon <br>seront bientôt disponibles ici.</p><div id="salon-contact" hidden></div></div></div>
+    <div class="container footer-bottom"><span>© <span id="current-year">2026</span> Shi Beauty</span><span>ONGLES & REGARD</span><button class="subtle-button" id="legal-open">Mentions légales</button></div>
+  </footer>
+
+  <div class="mobile-booking"><button class="button" data-booking>Prendre rendez-vous <span aria-hidden="true">↗</span></button></div>
+
+  <dialog class="booking-dialog" id="booking-dialog" aria-labelledby="booking-title">
+    <button class="dialog-close" data-close aria-label="Fermer">×</button>
+    <div class="dialog-inner"><p class="eyebrow">VOTRE PROCHAINE PAUSE BEAUTÉ</p><h2 id="booking-title">De quoi avez-vous <em>envie ?</em></h2><p class="dialog-intro">Choisissez votre soin pour préparer votre visite.</p>
+      <form id="selection-form">
+        <label class="field-label" for="service-select">Votre soin</label>
+        <select id="service-select" name="service"></select>
+        <fieldset id="extras-fieldset"><legend>Le petit plus <span>(facultatif)</span></legend><label class="checkbox-label"><input type="checkbox" id="effect-extra" name="effect"><span>French, baby boomer, chrome ou cat eye</span><strong>+5 €</strong></label><label class="checkbox-label"><input type="checkbox" id="design-extra" name="design"><span>Design d’un ongle</span><strong>+5 €</strong></label></fieldset>
+        <div class="selection-total"><span>Total de votre sélection</span><output id="selection-total">25 €</output></div>
+        <p class="booking-notice" id="booking-notice">La réservation en ligne sera bientôt disponible. Vous pouvez enregistrer votre sélection ; elle ne constitue pas une réservation.</p>
+        <div class="dialog-actions"><a class="button" id="booking-external" hidden>Réserver ce soin <span aria-hidden="true">↗</span></a><button class="button" type="submit" id="save-selection">Enregistrer ma sélection <span aria-hidden="true">↓</span></button></div>
+        <p class="selection-feedback" id="selection-feedback" role="status"></p>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog class="gallery-dialog" id="gallery-dialog" aria-labelledby="gallery-caption"><button class="dialog-close" data-close aria-label="Fermer la photo">×</button><figure><img id="gallery-image" alt=""><figcaption id="gallery-caption"></figcaption></figure><div class="gallery-controls"><button id="gallery-prev" aria-label="Photo précédente">←</button><span id="gallery-counter"></span><button id="gallery-next" aria-label="Photo suivante">→</button></div></dialog>
+
+  <dialog class="legal-dialog" id="legal-dialog" aria-labelledby="legal-title"><button class="dialog-close" data-close aria-label="Fermer">×</button><div class="dialog-inner"><p class="eyebrow">SHI BEAUTY</p><h2 id="legal-title">Mentions <em>légales.</em></h2><div id="legal-content"><h3>Éditeur du site</h3><p>Shi Beauty. Les informations d’identification de l’entreprise et les coordonnées de contact seront complétées avant l’ouverture de la réservation en ligne.</p><h3>Hébergement</h3><p>Site statique prévu pour GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p><h3>Vos données</h3><p>Ce site n’utilise pas de cookies de suivi et ne comporte pas de formulaire d’envoi de données personnelles. La sélection de soins est générée sur votre appareil. Si vous suivez un lien vers un service de réservation externe, sa politique de confidentialité s’applique.</p><h3>Photographies</h3><p>Photos d’inspiration issues d’Unsplash et de Pexels. Elles illustrent des styles et ne sont pas présentées comme des réalisations du salon.</p></div></div></dialog>
+  <noscript><p class="noscript-note">Les tarifs et les questions restent accessibles sans JavaScript. La sélection de soins et l’agrandissement des photos nécessitent JavaScript.</p></noscript>
+</body>
+</html>
