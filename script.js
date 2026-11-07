@@ -2,6 +2,7 @@
   'use strict';
   const config = window.SALON_CONFIG || {};
   const money = value => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(value);
+  const duration = minutes => minutes < 60 ? `${minutes} min` : `${Math.floor(minutes / 60)} h${minutes % 60 ? ` ${minutes % 60} min` : ''}`;
   document.getElementById('current-year').textContent = new Date().getFullYear();
 
   const menuToggle = document.querySelector('.menu-toggle');
@@ -67,27 +68,25 @@
   });
 
   const services = [
-    {group:'Mains & pieds',id:'manucure',name:'Manucure',price:20,nails:true},
-    {group:'Mains & pieds',id:'semi',name:'Vernis semi-permanent',price:25,nails:true},
-    {group:'Mains & pieds',id:'pieds',name:'Beauté des pieds sans vernis',price:35},
-    {group:'Mains & pieds',id:'pieds-semi',name:'Beauté des pieds + semi-permanent',price:45,nails:true},
-    {group:'Mains & pieds',id:'pieds-resine',name:'Résine sur les ongles des pieds + vernis',price:35,nails:true},
-    {group:'Extensions & nail art',id:'capsules',name:'Capsules + résine + semi-permanent',price:45,nails:true},
-    {group:'Extensions & nail art',id:'comblage',name:'Comblage des ongles — pose initiale −5 €',price:null,note:'Comblage : 5 € de moins que le tarif de votre pose initiale. Le montant sera confirmé au salon.'},
-    {group:'Extensions & nail art',id:'design',name:'Design complet',price:null,note:'Le tarif du design complet est établi sur devis au salon.'},
-    {group:'Beauté du regard',id:'cils-classique',name:'Pose de cils classique',price:60},
-    {group:'Beauté du regard',id:'cils-comblage',name:'Comblage classique — 3 semaines',price:50},
-    {group:'Beauté du regard',id:'cils-russe',name:'Pose volume russe',price:70},
-    {group:'Beauté du regard',id:'cils-mega',name:'Pose méga volume',price:85},
-    {group:'Beauté du regard',id:'cils-mixte',name:'Pose mixte',price:70},
-    {group:'Beauté du regard',id:'cils-volume',name:'Comblage volume — 3 à 4 semaines',price:60},
-    {group:'Beauté du regard',id:'cils-depose',name:'Dépose de cils',price:20}
+    {group:'Mains & pieds',id:'manucure',name:'Manucure sans vernis',price:20,minutes:20},
+    {group:'Mains & pieds',id:'semi',name:'Pose de vernis semi-permanent — mains',price:25,minutes:25,french:true},
+    {group:'Mains & pieds',id:'semi-pieds',name:'Pose de vernis semi-permanent — pieds',price:25,minutes:25,french:true},
+    {group:'Mains & pieds',id:'pieds',name:'Beauté des pieds sans vernis',price:30,minutes:30},
+    {group:'Mains & pieds',id:'pieds-semi',name:'Beauté des pieds + vernis semi-permanent',price:45,minutes:50,french:true},
+    {group:'Mains & pieds',id:'depose-ongles',name:'Dépose (gel ou résine) + manucure',price:15,minutes:15},
+    {group:'Résine & French',id:'capsules',name:'Pose de capsules en résine + vernis semi-permanent',price:45,minutes:50,french:true},
+    {group:'Résine & French',id:'comblage',name:'Remplissage résine + semi-permanent',price:40,minutes:50,french:true},
+    {group:'Les cils',id:'cils-classique',name:'Extension de cils à cils — effet naturel',price:60,minutes:90},
+    {group:'Les cils',id:'cils-russe',name:'Extensions volume russe',price:70,minutes:90},
+    {group:'Les cils',id:'cils-mega',name:'Extensions cils méga volume',price:85,minutes:90},
+    {group:'Les cils',id:'cils-volume',name:'Comblage volume russe — 3 à 4 semaines',price:60,minutes:90},
+    {group:'Les cils',id:'cils-depose',name:'Dépose des extensions de cils',price:20,minutes:30}
   ];
   const select = document.getElementById('service-select');
   const extras = document.getElementById('extras-fieldset');
   const effect = document.getElementById('effect-extra');
-  const design = document.getElementById('design-extra');
   const total = document.getElementById('selection-total');
+  const selectedDuration = document.getElementById('selection-duration');
   const bookingDialog = document.getElementById('booking-dialog');
   const notice = document.getElementById('booking-notice');
   const feedback = document.getElementById('selection-feedback');
@@ -97,42 +96,42 @@
       group = document.createElement('optgroup'); group.label = service.group; select.append(group);
     }
     const option = document.createElement('option'); option.value = service.id;
-    option.textContent = `${service.name} — ${service.price === null ? 'Sur devis' : money(service.price)}`;
+    option.textContent = `${service.name} — ${money(service.price)} · ${duration(service.minutes)}`;
     group.append(option);
   });
   select.value = 'semi';
   const selectedService = () => services.find(service => service.id === select.value);
   const selectedTotal = () => {
     const service = selectedService();
-    return service.price === null ? null : service.price + (service.nails && effect.checked ? 5 : 0) + (service.nails && design.checked ? 5 : 0);
+    return service.price + (service.french && effect.checked ? 5 : 0);
   };
+  const selectedMinutes = () => selectedService().minutes + (selectedService().french && effect.checked ? 30 : 0);
   function safeWebUrl(value) {
     try { const url = new URL(value); return url.protocol === 'https:' || url.protocol === 'http:' ? url.href : ''; } catch { return ''; }
   }
   const bookingUrl = safeWebUrl(config.bookingUrl);
   function updateSelection() {
     const service = selectedService();
-    extras.hidden = !service.nails;
-    effect.disabled = design.disabled = !service.nails;
+    extras.hidden = !service.french;
+    effect.disabled = !service.french;
     const amount = selectedTotal();
-    total.textContent = amount === null ? 'Sur devis' : money(amount);
+    total.textContent = money(amount);
+    selectedDuration.textContent = duration(selectedMinutes());
     notice.textContent = [service.note || '', bookingUrl ? 'Vous allez être redirigée vers le service de réservation du salon pour choisir et confirmer votre créneau.' : 'La réservation en ligne sera bientôt disponible. Vous pouvez enregistrer votre sélection ; elle ne constitue pas une réservation.'].filter(Boolean).join(' ');
     feedback.textContent = '';
   }
-  select.addEventListener('change', () => { effect.checked = design.checked = false; updateSelection(); });
+  select.addEventListener('change', () => { effect.checked = false; updateSelection(); });
   effect.addEventListener('change', updateSelection);
-  design.addEventListener('change', updateSelection);
   document.querySelectorAll('[data-booking]').forEach(button => button.addEventListener('click', () => {
-    if (button.dataset.service) { select.value = button.dataset.service; effect.checked = design.checked = false; }
+    if (button.dataset.service) { select.value = button.dataset.service; effect.checked = false; }
     updateSelection(); openDialog(bookingDialog, button);
   }));
   document.getElementById('selection-form').addEventListener('submit', event => {
     event.preventDefault();
     const service = selectedService();
-    const lines = ['SHI BEAUTY — MA SÉLECTION DE SOINS', '', service.name, `Prix : ${service.price === null ? 'Sur devis' : money(service.price)}`];
-    if (service.nails && effect.checked) lines.push('French, baby boomer, chrome ou cat eye : +5 €');
-    if (service.nails && design.checked) lines.push('Design d’un ongle : +5 €');
-    lines.push('', `TOTAL : ${selectedTotal() === null ? 'Sur devis' : money(selectedTotal())}`);
+    const lines = ['SHI BEAUTY — MA SÉLECTION DE SOINS', '', service.name, `Prix : ${money(service.price)}`, `Durée : ${duration(service.minutes)}`];
+    if (service.french && effect.checked) lines.push('French : +5 € · 30 min');
+    lines.push('', `TOTAL : ${money(selectedTotal())}`, `DURÉE PRÉVUE : ${duration(selectedMinutes())}`);
     if (service.note) lines.push(service.note);
     if (config.address) lines.push('', config.address);
     if (config.phone) lines.push(`Téléphone : ${config.phone}`);
