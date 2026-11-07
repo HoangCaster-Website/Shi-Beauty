@@ -145,8 +145,7 @@
   });
   if (bookingUrl) {
     const external = document.getElementById('booking-external'); external.href = bookingUrl; external.hidden = false;
-    document.getElementById('booking-help')?.remove();
-    document.querySelector('[data-booking-help]').textContent = 'Choisissez votre soin, puis consultez les disponibilités sur notre service de réservation. Votre rendez-vous sera confirmé sur ce service.';
+    document.querySelectorAll('[data-booking-link]').forEach(link => { link.href = bookingUrl; });
   }
   updateSelection();
 
